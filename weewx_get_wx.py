@@ -32,6 +32,7 @@ def on_message(client, userdata, msg):
     #console.print_json(data=wx_data)
     dt = datetime.fromtimestamp(float(wx_data['dateTime']))
 
+    wx_date = f"{dt:%m/%d/%Y  %H:%M:%S}"
     temperature = f"{float(wx_data['outTemp_F']):.1F}"
     humidity = f"{float(wx_data['outHumidity']):.0F}"
     dewpoint = f"{float(wx_data['dewpoint_F']):.1F}"
@@ -50,6 +51,9 @@ def on_message(client, userdata, msg):
     console.print(wx_str)
 
     wx_json = {
+        'WX_DATE': {
+            "value": wx_date,
+            }
         'WX_TEMP': {
             "value": temperature,
             "format": "{:.1f}",
