@@ -37,7 +37,7 @@ def on_message(client, userdata, msg):
     dewpoint = f"{float(wx_data['dewpoint_F']):.1F}"
     wind_speed = f"{float(wx_data['windSpeed_mph']):.1f}"
     wind_dir = f"{float(wx_data.get('windDir', 0.00))}"
-    pressure = "{float(wx_data['relbarometer']):.2f}"
+    pressure = f"{float(wx_data['relbarometer']):.2f}"
 
     wx_str = (
         f"{dt:%Y-%m-%d %H:%M:%S}  "
